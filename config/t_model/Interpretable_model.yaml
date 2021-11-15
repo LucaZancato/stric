@@ -1,0 +1,22 @@
+# @package t_model
+type: InterpretableTCN
+info:
+  test_portion: 0.6
+  memory_length: 50
+  pred_length: 1
+  linear_kernel_sizes: null
+
+  num_trends_filters: 1
+  n_periodic_poles: 100
+  n_complex_poles: 100
+
+  num_channels_TCN: [32, 32, 32]
+  kernel_size_TCN: 5
+  dropout_TCN: 0.
+
+  learnable_filters: False
+  random_init: False
+  optimizer: Adam
+  epochs: 10
+  lr: 0.001
+  bs: 30

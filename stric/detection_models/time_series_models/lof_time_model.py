@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.neighbors import LocalOutlierFactor
 from stric.detection_models.time_series_models.base_ts_model import TemporalModel
 
-class LOF_Time_Model(TemporalModel):
+class LOFTimeModel(TemporalModel):
     def __init__(self,  data, test_portion, bs_seq=100):
         super().__init__(data, test_portion, bs_seq)
         # Use a reduced dataset to perform model selection

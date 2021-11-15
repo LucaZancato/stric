@@ -1,0 +1,10 @@
+# @package multirun
+# Choose which GPUs you want to use (use a string such as "4,6" or "all", you$
+devices: all
+# You can choose from: usage, memory, tasks
+gpu_bottleneck: tasks
+max_usage: 2
+
+# The following depends on the experiment you are running and the efficiency of the implementation
+wait_for_next_available_gpu: 5
+wait_to_start_new_job: 20

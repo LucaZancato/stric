@@ -1,0 +1,30 @@
+seed: 0
+
+visualize: False
+save_images: False
+
+device: cuda:0 #cuda:0 cpu
+
+dataset:
+  info:
+    name: YahooDataset
+    subname: A3Benchmark
+    index: all # all
+  preprocessing:
+    normalize: True
+    detrend: False
+
+defaults:
+ - hydra/launcher: gpu_parallel
+ - config/hydra_plugins: parallel_launcher
+ - config/t_model: Interpretable_model
+ - config/a_model: log_lik_2_model
+# - config/experiment: effects_batch_size #effects_dataset_size
+
+hydra:
+  sweep:
+    dir: ./multirun/AD_models_comparison/${dataset.info.subname}/${t_model.type}/memory_${t_model.info.memory}/
+#    dir: ./multirun/Effects_of_batch_size/${system.name}/${model.type}/${opt.type}/${opt.dataloader.batch_size}
+#    dir: ./multirun/interpretable_model_test/${system.name}/${model.type}/${opt.type}/epochs_${opt.epochs}/seq_len_${identification.seq_len}/BS_${opt.dataloader.batch_size}/p_${model.info.p}/n_${model.info.n}
+    subdir: ${seed}
+  #    subdir: ${hydra.job.num}_${hydra.job.num}_${hydra.job.override_dirname}
